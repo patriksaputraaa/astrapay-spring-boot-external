@@ -1,7 +1,7 @@
 package com.astrapay.controller;
 
 import com.astrapay.dto.ExampleDto;
-import com.astrapay.exception.ExampleException;
+import com.astrapay.exception.CustomException;
 import com.astrapay.service.ExampleService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -42,7 +42,7 @@ public class ExampleController {
             exampleDto.setDescription(description);
 
             return ResponseEntity.ok(exampleService.sayHello(exampleDto));
-        } catch (ExampleException e) {
+        } catch (CustomException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
