@@ -1,4 +1,4 @@
-## ▶️ Cara Menjalankan
+## Cara Menjalankan
 
 1.  Kloning repositori:
     ```bash
@@ -8,9 +8,9 @@
 
 2.  Jalankan dari IDE tapi pastikan maven sudah loaded
 
-Aplikasi berjalan di **`http://localhost:[Port Anda, default: 8080]`**.
+Aplikasi berjalan di **`http://localhost:[Port Anda, default: 8760]`**.
 
-## 💻 Endpoint API (Path: `/notes`)
+## Endpoint API (Path: `/api/notes`)
 
 | Method | Path          | Deskripsi |
 | :--- |:--------------| :--- |
