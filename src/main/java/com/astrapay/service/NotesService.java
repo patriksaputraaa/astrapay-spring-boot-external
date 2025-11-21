@@ -11,6 +11,6 @@ public interface NotesService {
     ResNotesListDto getAllNotes();
     ResNoteDto getNote(UUID id);
     ResNoteDto addNote(ReqAddNoteDto note);
-    ResNoteDto updateNote(ReqUpdateNoteDto note);
+    ResNoteDto updateNote(ReqUpdateNoteDto note, UUID id);
     void deleteNote(UUID id);
 }

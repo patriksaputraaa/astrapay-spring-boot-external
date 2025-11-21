@@ -67,11 +67,10 @@ public class NotesServiceImplTest {
     @Test
     void updateNote_success() {
         ReqUpdateNoteDto updateReq = new ReqUpdateNoteDto();
-        updateReq.setId(initialNote.getId());
         updateReq.setTitle("Judul Baru");
         updateReq.setContent("Konten Diperbarui!");
 
-        ResNoteDto updatedNote = notesService.updateNote(updateReq);
+        ResNoteDto updatedNote = notesService.updateNote(updateReq, UUID.fromString(initialNote.getId()));
 
         assertEquals("Judul Baru", updatedNote.getTitle());
         assertEquals("Konten Diperbarui!", updatedNote.getContent());
@@ -83,12 +82,11 @@ public class NotesServiceImplTest {
     @Test
     void updateNote_notFound() {
         ReqUpdateNoteDto updateReq = new ReqUpdateNoteDto();
-        updateReq.setId(UUID.randomUUID().toString());
         updateReq.setTitle("Test");
         updateReq.setContent("Test");
 
         assertThrows(CustomException.class, () -> {
-            notesService.updateNote(updateReq);
+            notesService.updateNote(updateReq, UUID.randomUUID());
         });
     }
 

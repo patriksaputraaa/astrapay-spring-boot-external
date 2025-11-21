@@ -43,11 +43,11 @@ public class NotesServiceImpl implements NotesService {
     }
 
     @Override
-    public ResNoteDto updateNote(ReqUpdateNoteDto note) {
+    public ResNoteDto updateNote(ReqUpdateNoteDto note, UUID id) {
         ResNoteDto existing = notes.stream()
-                .filter(n -> n.getId().equals(note.getId()))
+                .filter(n -> n.getId().equals(id.toString()))
                 .findFirst()
-                .orElseThrow(() -> new CustomException("Note dengan id: " + note.getId() + " tidak ditemukan!"));
+                .orElseThrow(() -> new CustomException("Note dengan id: " + id + " tidak ditemukan!"));
 
         existing.setTitle(note.getTitle());
         existing.setContent(note.getContent());

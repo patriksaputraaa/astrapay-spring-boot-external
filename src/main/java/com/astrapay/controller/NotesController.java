@@ -61,10 +61,13 @@ public class NotesController {
         return ResponseEntity.status(201).body(response);
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     @ApiOperation(value = "Update note")
-    public ResponseEntity<BaseResponse<ResNoteDto>> updateNote(@Valid @RequestBody ReqUpdateNoteDto note) {
-        ResNoteDto updated = notesService.updateNote(note);
+    public ResponseEntity<BaseResponse<ResNoteDto>> updateNote(
+            @Valid @RequestBody ReqUpdateNoteDto note,
+            @PathVariable String id
+    ) {
+        ResNoteDto updated = notesService.updateNote(note, UUID.fromString(id));
         BaseResponse<ResNoteDto> response = new BaseResponse<>();
         response.setMessage("Note berhasil diperbarui");
         response.setData(updated);
